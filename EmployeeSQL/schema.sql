@@ -1,39 +1,24 @@
-DROP TABLE IF EXISTS actor;
-DROP TABLE IF EXISTS address;
-DROP TABLE IF EXISTS city;
-DROP TABLE IF EXISTS country;
-DROP TABLE IF EXISTS customer;
-DROP TABLE IF EXISTS customer_list;
-DROP TABLE IF EXISTS film;
-DROP TABLE IF EXISTS film_actor;
-DROP TABLE IF EXISTS inventory;
-DROP TABLE IF EXISTS payment;
-DROP TABLE IF EXISTS rental;
-DROP TABLE IF EXISTS staff;
-DROP TABLE IF EXISTS store;
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS dept_emp;
+DROP TABLE IF EXISTS dept_manager;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS salaries;
+DROP TABLE IF EXISTS titles;
 
 
-CREATE TABLE actor (
-  actor_id integer NOT NULL,
-  first_name character varying(45) NOT NULL,
-  last_name character varying(45) NOT NULL,
-  last_update timestamp without time zone DEFAULT now() NOT NULL
+CREATE TABLE departments (
+  dept_no integer NOT NULL,
+  dept_name character varying(45) NOT NULL,
 );
 
-CREATE TABLE address (
-  address_id integer NOT NULL,
-  address character varying(50) NOT NULL,
-  address2 character varying(50),
-  district character varying(20) NOT NULL,
-  city_id smallint NOT NULL,
-  postal_code character varying(10),
-  phone character varying(20) NOT NULL,
-  last_update timestamp without time zone DEFAULT now() NOT NULL
+CREATE TABLE dept_emp (
+  emp_no integer NOT NULL,
+  dept_no  character varying(45) NOT NULL,
 );
 
-CREATE TABLE city (
-  city_id integer NOT NULL,
-  city character varying(50) NOT NULL,
+CREATE TABLE dept_manager (
+  dept_no integer NOT NULL,
+  emp_no character varying(45) NOT NULL,
   country_id smallint NOT NULL,
   last_update timestamp without time zone DEFAULT now() NOT NULL
 );
