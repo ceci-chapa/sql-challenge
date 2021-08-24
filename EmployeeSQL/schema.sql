@@ -7,18 +7,18 @@ DROP TABLE IF EXISTS titles;
 
 
 CREATE TABLE departments (
-  dept_no integer NOT NULL,
+  dept_no text NOT NULL,
   dept_name character varying(45) NOT NULL
 );
 
 CREATE TABLE dept_emp (
   emp_no integer NOT NULL,
-  dept_no character varying(45) NOT NULL
+  dept_no text NOT NULL
 );
 
 CREATE TABLE dept_manager (
-  dept_no integer NOT NULL,
-  emp_no character varying(45) NOT NULL
+  dept_no text NOT NULL,
+  emp_no integer NOT NULL
 );
 
 CREATE TABLE employees (
@@ -32,11 +32,11 @@ CREATE TABLE employees (
 );
 
 CREATE TABLE salaries (
-  title_id text NOT NULL,
-  title character varying(45) NOT NULL
+  emp_no integer NOT NULL,
+  salary  money NOT NULL
 );
 
 CREATE TABLE titles (
-  title_id integer NOT NULL,
-  salary money NOT NULL
+  title_id text NOT NULL,
+  title character varying(45) NOT NULL
 );
