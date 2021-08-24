@@ -9,7 +9,9 @@ ON (e.emp_no = s.emp_no)
 ORDER BY "emp_no" ASC;
 
 --List first name, last name, and hire date for employees who were hired in 1986.
-
+SELECT first_name, last_name, hire_date
+FROM employees
+WHERE hire_date LIKE 1986%;
 
 --List the manager of each department with the following information: department number, department name, the manager's employee number, last name, first name.
 
