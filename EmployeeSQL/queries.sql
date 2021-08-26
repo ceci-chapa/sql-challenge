@@ -1,5 +1,5 @@
 SELECT *
-FROM departments;
+FROM employees;
 
 --List the following details of each employee: employee number, last name, first name, sex, 
 --and salary.
@@ -16,7 +16,7 @@ WHERE hire_date::text LIKE '1986%';
 
 --List the manager of each department with the following information: department number,
 --department name, the manager's employee number, last name, first name.
-Select dm.dept_no, d.dept_name, e.emp_no, e.last_name, e.first_name
+SELECT dm.dept_no, d.dept_name, e.emp_no, e.last_name, e.first_name
 FROM dept_manager AS dm
 INNER JOIN employees AS e
 ON (dm.emp_no = e.emp_no)
@@ -26,10 +26,20 @@ ON (dm.dept_no = d.dept_no);
 
 --List the department of each employee with the following information: employee number, 
 --last name, first name, and department name.
+Select de.emp_no, e.last_name, e.first_name, dep.dept_name
+FROM dept_emp AS de
+INNER JOIN employees As e
+ON (de.emp_no = e.emp_no)
+
+INNER JOIN departments As dep
+ON (de.dept_no = dep.dept_no);
 
 
 --List first name, last name, and sex for employees whose first name is "Hercules" and 
 --last names begin with "B."
+SELECT first_name, last_name, sex 
+FROM employees
+WHERE first_name LIKE 'Hercules' AND last_name LIKE 'B%';
 
 
 --List all employees in the Sales department, including their employee number, last name, 
