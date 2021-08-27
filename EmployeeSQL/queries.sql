@@ -26,6 +26,7 @@ ON (dm.dept_no = d.dept_no);
 
 --List the department of each employee with the following information: employee number, 
 --last name, first name, and department name.
+CREATE VIEW employee_dept AS
 Select de.emp_no, e.last_name, e.first_name, dep.dept_name
 FROM dept_emp AS de
 INNER JOIN employees As e
@@ -44,10 +45,15 @@ WHERE first_name LIKE 'Hercules' AND last_name LIKE 'B%';
 
 --List all employees in the Sales department, including their employee number, last name, 
 --first name, and department name.
-
+SELECT *
+FROM employee_dept
+WHERE dept_name LIKE 'Sales';
 
 --List all employees in the Sales and Development departments, including their employee number, 
 --last name, first name, and department name.
+SELECT *
+FROM employee_dept
+WHERE dept_name IN('Sales', 'Development');
 
 
 --In descending order, list the frequency count of employee last names, i.e., 
