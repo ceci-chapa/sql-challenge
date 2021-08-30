@@ -62,3 +62,4 @@ SELECT last_name, COUNT(last_name) AS "Last Name Totals"
 FROM employees
 GROUP BY last_name
 order by count(last_name) desc;
+
